@@ -20,7 +20,7 @@ export default () => (
         })}
       />
       <Switch>
-        <Route path="/" component={Main} />
+        <Route path="/" component={() => <Main />} />
       </Switch>
     </div>
   </BrowserRouter>
