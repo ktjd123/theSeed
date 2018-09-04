@@ -34,9 +34,5 @@ export default () => (
       <br />
       &nbsp;&nbsp;&nbsp;- Account Modeling
     </p>
-
-    <div className={cx('hidden')}>
-다 할 수 있으려나..,.?
-    </div>
   </div>
 );

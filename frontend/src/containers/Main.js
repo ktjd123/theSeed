@@ -6,7 +6,7 @@ import {
 
 class Main extends Component {
   state = {
-    page: 4,
+    page: 0,
   };
 
   nextPage = () => {
@@ -60,6 +60,13 @@ class Main extends Component {
         {page === 4 ? (
           <div>
             <Fifth />
+          </div>
+        ) : (
+          undefined
+        )}
+        {page === 5 ? (
+          <div>
+            <First />
           </div>
         ) : (
           undefined
