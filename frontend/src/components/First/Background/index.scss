@@ -1,0 +1,18 @@
+@import "utils";
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  .comp {
+    width: 25vw;
+    height: 33.3vh;
+    border: 3px solid #eee;
+    box-sizing: border-box;
+  }
+}
