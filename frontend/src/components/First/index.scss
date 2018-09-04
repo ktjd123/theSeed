@@ -3,6 +3,7 @@
 
 .first {
   @include flex-column();
+  font-weight: 800;
 
   .logo {
     font-family: "Sacramento", cursive;
