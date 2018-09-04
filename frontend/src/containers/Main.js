@@ -25,7 +25,10 @@ class Main extends Component {
   previousPage = (e) => {
     const { page } = this.state;
 
-    if (page === 0) return;
+    if (page === 0) {
+      e.preventDefault();
+      return;
+    }
 
     this.setState({
       page: page - 1,
