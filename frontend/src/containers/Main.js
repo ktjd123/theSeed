@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 import {
-  First, Second, Third, Fourth,
+  First, Second, Third, Fourth, Fifth,
 } from '../components';
 
 class Main extends Component {
   state = {
-    page: 3,
+    page: 4,
   };
 
   nextPage = () => {
@@ -53,6 +53,13 @@ class Main extends Component {
         {page === 3 ? (
           <div>
             <Fourth />
+          </div>
+        ) : (
+          undefined
+        )}
+        {page === 4 ? (
+          <div>
+            <Fifth />
           </div>
         ) : (
           undefined
