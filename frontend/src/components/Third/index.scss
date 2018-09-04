@@ -2,4 +2,27 @@
 
 .third {
   @include flex-column();
+
+  .platforms {
+    margin-top: 100px;
+    @include flex-column();
+
+    .p-title {
+      font-size: 2rem;
+    }
+    .wrapper {
+      margin-top: 30px;
+      margin-bottom: 70px;
+      @include flex();
+
+      .img {
+        width: 200px;
+      }
+
+      .big {
+        font-size: 2rem;
+        margin: 0 100px;
+      }
+    }
+  }
 }
