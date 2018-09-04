@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
 
 import {
   First, Second, Third, Fourth, Fifth,
@@ -11,13 +12,21 @@ class Main extends Component {
 
   nextPage = () => {
     const { page } = this.state;
+    if (page === 5) return;
+
     this.setState({
       page: page + 1,
     });
+    if (page === 3) {
+      toast.success('언제 다 해');
+    }
   };
 
   previousPage = (e) => {
     const { page } = this.state;
+
+    if (page === 0) return;
+
     this.setState({
       page: page - 1,
     });
