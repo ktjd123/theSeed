@@ -12,14 +12,14 @@ import api from "./api";
 const app = express();
 const port = 4000;
 
+app.use(bodyParser.json());
+app.use(compression());
+app.use(morgan("dev"));
+
 app.use(function(err, req, res, next) {
   console.error(err.stack);
   return res.status(500).json({ code: 0 });
 });
-
-app.use(bodyParser.json());
-app.use(compression());
-app.use(morgan("dev"));
 
 mongoose.Promise = global.Promise;
 mongoose.set("debug", true);
