@@ -1,0 +1,47 @@
+@import "utils";
+
+.second {
+  @include flex-column();
+  height: 100vh;
+  background: linear-gradient(-45deg, red, white, #e73c7e, black);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
+
+  @keyframes Gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .plus {
+    margin-top: 150px;
+
+    @include flex();
+
+    .big {
+      font-size: 5rem;
+      margin: 0 30px;
+    }
+    .logo-image {
+      width: 530px;
+      height: 300px;
+    }
+  }
+
+  .e-90 {
+    margin-top: 50px;
+    font-size: 15rem;
+    transform: rotate(90deg);
+  }
+
+  .logo {
+    font-family: "Sacramento", cursive;
+    font-size: 10rem;
+  }
+}

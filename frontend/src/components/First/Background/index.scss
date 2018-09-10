@@ -1,0 +1,63 @@
+@import "utils";
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  .comp {
+    width: 25vw;
+    height: 33.3vh;
+    border: 3px solid #eee;
+    box-sizing: border-box;
+    filter: brightness(70%) blur(10px);
+    transition: all 1s;
+    background-size: cover !important;
+    background-position: center !important;
+
+    &.point {
+      filter: brightness(100%) blur(0);
+    }
+
+    &.i1 {
+      background: url("/images/i1.jpeg");
+    }
+    &.i2 {
+      background: url("/images/i2.jpeg");
+    }
+    &.i3 {
+      background: url("/images/i3.jpeg");
+    }
+    &.i4 {
+      background: url("/images/i4.jpeg");
+    }
+    &.i5 {
+      background: url("/images/i5.jpeg");
+    }
+    &.i6 {
+      background: url("/images/i6.jpeg");
+    }
+    &.i7 {
+      background: url("/images/i7.jpeg");
+    }
+    &.i8 {
+      background: url("/images/i8.jpeg");
+    }
+    &.i9 {
+      background: url("/images/i9.jpeg");
+    }
+    &.i10 {
+      background: url("/images/i10.jpeg");
+    }
+    &.i11 {
+      background: url("/images/i11.jpeg");
+    }
+    &.i12 {
+      background: url("/images/i12.jpeg");
+    }
+  }
+}

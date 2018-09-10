@@ -1,0 +1,27 @@
+@import "utils";
+@import url("https://fonts.googleapis.com/css?family=Sacramento");
+
+.first {
+  @include flex-column();
+  font-weight: 800;
+
+  .logo {
+    font-family: "Sacramento", cursive;
+  }
+  .title {
+    margin: 0 auto;
+    margin-top: 25vh;
+    font-size: 5rem;
+  }
+
+  .description {
+    margin-top: 120px;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .name {
+    margin-top: 120px;
+    font-size: 3rem;
+  }
+}

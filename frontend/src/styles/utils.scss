@@ -1,13 +1,18 @@
-@import '~include-media/dist/include-media';
-$breakpoints: ( small: 376px, medium: 768px, large: 1024px, huge: 1200px);
+@import "~include-media/dist/include-media";
+$breakpoints: (
+  small: 376px,
+  medium: 768px,
+  large: 1024px,
+  huge: 1200px
+);
 @mixin flex() {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @mixin flex-column() {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
