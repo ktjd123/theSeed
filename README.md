@@ -1,54 +1,24 @@
-# Next.js (React) + Redux + Express REST API + MongoDB + Mongoose-Crudify boilerplate
+<h1>
+    TheSeed V6 With SSR Support [Finally Done] [REALTIME SSR]
 
-Based on [nextjs-express-boilerplate](https://github.com/johhansantana/nextjs-express-boilerplate), but with added [mongoose-crudify](https://github.com/ryo718/mongoose-crudify) and [redux-api](https://github.com/lexich/redux-api).
+    sass support done
 
-**NOTE:** this project now uses Redux and [redux-api](https://github.com/lexich/redux-api). See the [no-redux](https://github.com/tomsoderlund/nextjs-express-mongoose-crudify-boilerplate/tree/no-redux) branch for the (unmaintained) version without Redux.
+    make pages in frontend pages
 
-## Why is this awesome?
+</h1>
 
-This is a great starting point for a any project where you want **React + Redux** (with server-side rendering, powered by [Next.js](https://github.com/zeit/next.js)) as frontend and **Express/MongoDB** as a REST API backend.
-Lightning fast, all JavaScript.
+<h2>
+    How It's made
+</h2>
 
-## Demo
+<ul>
+<li>
+    Backend is just express backend
+</li>
+<li>
+    Frontend next.config.js is important
 
-See [**nextjs-express-mongoose-crudify-boilerplate** running on Heroku here](https://nextjs-express-mongoose.herokuapp.com/).
+    if new page is added, you have to add it to next.config.js too
 
-![nextjs-express-mongoose-crudify-boilerplate demo on Heroku](docs/kittens-demo.gif)
-
-## How to use
-
-Clone this repository:
-
-	git clone https://github.com/tomsoderlund/nextjs-express-mongoose-crudify-boilerplate.git [MY_APP]
-
-Install dependencies:
-
-	cd [MY_APP]
-	yarn  # or npm install
-
-Start it by doing the following:
-
-	export MONGODB_URI=*your mongodb url* // you can get one for free at https://www.mlab.com/home
-	npm run dev
-
-In production:
-
-	npm run build
-	npm start
-
-If you navigate to `http://localhost:3001/` you will see a [Next.js](https://github.com/zeit/next.js) page with a list of kittens (or an empty list if you haven't added one).
-
-You have your API server running at `http://localhost:3001/api/kittens`
-
-
-## Deploying
-
-### Deploying on Heroku
-
-	heroku create [MY_APP]
-	heroku addons:add mongolab
-	git push heroku master
-
-### Deploying on Now
-
-See instructions on [nextjs-express-boilerplate](https://github.com/johhansantana/nextjs-express-boilerplate).
+</li>
+</ul>
