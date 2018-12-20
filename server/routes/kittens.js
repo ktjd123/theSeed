@@ -1,5 +1,5 @@
-"use strict";
+import express from 'express';
 
-const Kitten = require("../models/kitten");
+const router = express();
 
-module.exports = function(server) {};
+export default router;

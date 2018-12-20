@@ -1,18 +1,27 @@
 // const express = require('express');
 import express from 'express';
 
-const server = express();
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const glob = require('glob');
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import next from 'next';
 
-const next = require('next');
+import compression from 'compression';
+import morgan from 'morgan';
+
+import connectMongo from 'connect-mongo';
+import session from 'express-session';
+
+import api from './routes';
+
+const server = express();
 
 const dev = process.env.NODE_ENV === 'development';
 const app = next({ dev });
 const defaultRequestHandler = app.getRequestHandler();
 
-const LOCAL_DB = 'nextjs-express-boilerplate';
+const LOCAL_DB = 'theseed';
+const SESSION_KEY = 'connect.sid';
+const SESSION_SECRET = 'jfoiesofj@#JIFSIOfsjieo@320923';
 const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost/${LOCAL_DB}`;
 const PORT = process.env.PORT || 3000;
 
@@ -22,15 +31,13 @@ app.prepare().then(() => {
   // Parse application/json
   server.use(bodyParser.json());
 
-  // Allows for cross origin domain request:
-  server.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-  });
+  // Theseed Custom
+  server.use(compression());
+  server.use(morgan('dev'));
 
   // MongoDB
-  mongoose.Promise = Promise;
+  // mongoose.set('debug', true);
+  mongoose.Promise = global.Promise;
   mongoose.connect(
     MONGODB_URI,
     { useMongoClient: true },
@@ -38,11 +45,28 @@ app.prepare().then(() => {
   const db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
 
+  // Session
+  const MongoStore = connectMongo(session);
+  server.use(
+    session({
+      key: SESSION_KEY,
+      secret: SESSION_SECRET,
+      resave: false,
+      saveUninitialized: false,
+      rolling: true,
+      cookie: {
+        maxAge: 365 * (24 * 60 * 60 * 1000),
+        domain: dev ? undefined : undefined,
+      },
+      store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl: 365 * (24 * 60 * 60 * 1000),
+      }),
+    }),
+  );
+
   // API routes
-  const rootPath = require('path').normalize(`${__dirname}/..`);
-  glob
-    .sync(`${rootPath}/server/routes/*.js`)
-    .forEach(controllerPath => require(controllerPath)(server));
+  server.use('/api', api);
 
   // Next.js request handling
   const customRequestHandler = (page, req, res) => {
@@ -52,13 +76,13 @@ app.prepare().then(() => {
   };
 
   // Routes
-  // server.get('/custom', customRequestHandler.bind(undefined, '/custom-page'));
-  server.get('/', customRequestHandler.bind(undefined, '/'));
+  // server.get('/', customRequestHandler.bind(undefined, '/'));
+  server.get('/about/:id', customRequestHandler.bind(undefined, '/about'));
   server.get('*', defaultRequestHandler);
 
   server.listen(PORT, () => {
     console.log(
-      `App running on http://localhost:${PORT}/\nAPI running on http://localhost:${PORT}/api/kittens`,
+      `App running on http://localhost:${PORT}/\nAPI running on http://localhost:${PORT}/api/`,
     );
   });
 });
