@@ -1,5 +1,8 @@
 import React from 'react';
+import { withRouter } from 'next/router';
 
-export default function about({ url }) {
-  return <div>{url.query.id}</div>;
+function about({ router }) {
+  return <div>{router.query.id}</div>;
 }
+
+export default withRouter(about);
