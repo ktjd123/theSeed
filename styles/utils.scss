@@ -1,0 +1,31 @@
+@import "node_modules/include-media/dist/include-media";
+
+$breakpoints: (
+  small: 376px,
+  medium: 768px,
+  large: 1024px,
+  huge: 1200px
+);
+
+$border-radius: 3px;
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin box($width) {
+  width: $width;
+  padding: 10px;
+  @include flex-column();
+  border: 1px solid #ddd;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.16);
+  border-radius: $border-radius;
+}
