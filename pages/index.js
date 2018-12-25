@@ -13,7 +13,7 @@ class index extends Component {
         <Head title="index page" description="this is index page" />
         <Default />
         <Default2 />
-        <Link prefetch href="/about/peter">
+        <Link prefetch as="/about/peter" href="/about?id=peter">
           Peter에 대하여
         </Link>
         <Link href="/about">About</Link>
