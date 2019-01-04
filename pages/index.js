@@ -7,6 +7,7 @@ import Default2 from '../components/Default2';
 class index extends Component {
   static getInitialProps = async () => ({ o: 'hi' });
 
+
   render() {
     return (
       <div>
@@ -17,6 +18,8 @@ class index extends Component {
           Peter에 대하여
         </Link>
         <Link href="/about">About</Link>
+
+        <Link href="/oejsifjesofoes">to 404</Link>
 
         {JSON.stringify(this.props)}
       </div>
