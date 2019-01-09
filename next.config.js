@@ -9,5 +9,6 @@ module.exports = withSass({
   },
   sassLoaderOptions: {
     includePaths: ['styles'],
+    data: "@import 'utils';",
   },
 });
