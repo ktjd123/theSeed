@@ -80,6 +80,11 @@ app.prepare().then(() => {
   server.get('/about/:id', customRequestHandler.bind(undefined, '/about'));
   server.get('*', defaultRequestHandler);
 
+  server.use((err, req, res, next) => {
+    console.error(err.stack);
+    return res.status(500).json({ code: 0 });
+  });
+
   server.listen(PORT, () => {
     console.log(
       `App running on http://localhost:${PORT}/\nAPI running on http://localhost:${PORT}/api/`,
