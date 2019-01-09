@@ -29,3 +29,12 @@ $border-radius: 3px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.16);
   border-radius: $border-radius;
 }
+
+@mixin absolute-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin shadow($amount: 0.16) {
+  box-shadow: 0 0 3px rgba(0, 0, 0, $amount);
+}
