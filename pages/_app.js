@@ -1,6 +1,10 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 
+import { PageHead } from '../components';
+
+import '../styles/default.scss';
+
 export default class MyApp extends App {
   state = {
     a: 'a',
@@ -25,6 +29,7 @@ export default class MyApp extends App {
 
     return (
       <Container>
+        <PageHead />
         <Component {...this.state} {...pageProps} />
       </Container>
     );
