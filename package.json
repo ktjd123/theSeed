@@ -21,6 +21,7 @@
     "mongoose": "^5.4.0",
     "morgan": "^1.9.1",
     "next": "^7.0.2",
+    "next-compose-plugins": "^2.1.1",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"

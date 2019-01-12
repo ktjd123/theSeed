@@ -9,6 +9,8 @@ $breakpoints: (
 
 $border-radius: 3px;
 
+$border-color: #aaa;
+
 @mixin flex {
   display: flex;
   align-items: center;
@@ -27,6 +29,7 @@ $border-radius: 3px;
   @include flex-column();
   border: 1px solid #ddd;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.16);
+  background: white;
   border-radius: $border-radius;
 }
 
@@ -37,4 +40,39 @@ $border-radius: 3px;
 
 @mixin shadow($amount: 0.16) {
   box-shadow: 0 0 3px rgba(0, 0, 0, $amount);
+}
+
+@mixin button-default {
+  display: block;
+  padding: 5px 10px;
+  font-weight: thin;
+  font-size: 1rem;
+  border-radius: $border-radius;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+}
+
+@mixin button {
+  @include button-default();
+  background: black;
+  color: white;
+
+  &:active {
+    color: black;
+    background: white;
+    border: 1px solid black;
+  }
+}
+
+@mixin button-reverse {
+  @include button-default();
+  background: white;
+  color: black;
+  border: 1px solid black;
+
+  &:active {
+    color: white;
+    background: black;
+  }
 }
