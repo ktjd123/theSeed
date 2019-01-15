@@ -4,7 +4,8 @@
   "description": "Next.js with Express boilerplate and Mongoose CRUD support",
   "main": "server/index.js",
   "scripts": {
-    "d": "NODE_ENV=development nodemon -w server -w package.json server/index.js  --exec babel-node index.js --presets es2015 ",
+    "d": "cross-env NODE_ENV=development nodemon -w server -w package.json server/index.js  --exec babel-node index.js --presets es2015 ",
+    "p": "cross-env NODE_ENV=production node index.js",
     "build": "rm -rf build && babel server -d build/ --presets es2015 && next build && mv .next build/.next && cp package.json build",
     "start": "cd build && node index.js"
   },
@@ -15,6 +16,7 @@
     "classnames": "^2.2.6",
     "compression": "^1.7.3",
     "connect-mongo": "^2.0.3",
+    "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "include-media": "^1.4.9",
