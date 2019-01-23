@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-const PageHead = ({ title, description }) => (
+const PageHead = ({ title = 'the Seed', description = 'default description' }) => (
   <Head>
     <title>{title}</title>
     <meta name="description" content={description} />
