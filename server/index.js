@@ -22,6 +22,7 @@ const defaultRequestHandler = app.getRequestHandler();
 const LOCAL_DB = 'theseed';
 const SESSION_KEY = 'connect.sid';
 const SESSION_SECRET = 'jfoiesofj@#JIFSIOfsjieo@320923';
+const SESSION_DOMAIN = undefined;
 const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost/${LOCAL_DB}`;
 const PORT = process.env.PORT || 3000;
 
@@ -40,7 +41,7 @@ app.prepare().then(() => {
   mongoose.Promise = global.Promise;
   mongoose.connect(
     MONGODB_URI,
-    { useNewUrlParser: true, useCreateIndex: true },
+    { useNewUrlParser: true, useCreateIndex: true, autoIndex: true },
   );
   const db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
@@ -56,7 +57,7 @@ app.prepare().then(() => {
       rolling: true,
       cookie: {
         maxAge: 365 * (24 * 60 * 60 * 1000),
-        domain: dev ? undefined : undefined,
+        domain: dev ? undefined : SESSION_DOMAIN,
       },
       store: new MongoStore({
         mongooseConnection: mongoose.connection,
