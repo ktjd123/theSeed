@@ -16,9 +16,7 @@
     Backend is just express backend
 </li>
 <li>
-    Frontend next.config.js is important
-
-    if new page is added, you have to add it to next.config.js too
-
+    custom page is needed to added to express
+    mobx inside.
 </li>
 </ul>
