@@ -1,15 +1,17 @@
 import React from 'react';
 import App, { Container } from 'next/app';
+import { Provider } from 'mobx-react';
+
+// stores
+import CounterStore from '../store/counter';
 
 import { PageHead } from '../components';
 
 import '../styles/default.scss';
 
-export default class MyApp extends App {
-  state = {
-    a: 'a',
-  };
+const counter = new CounterStore();
 
+export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
@@ -20,17 +22,15 @@ export default class MyApp extends App {
     return { pageProps };
   }
 
-  componentDidMount = () => {
-    this.setState({ a: 'b' });
-  };
-
   render() {
     const { Component, pageProps } = this.props;
 
     return (
       <Container>
         <PageHead />
-        <Component {...this.state} {...pageProps} />
+        <Provider counter={counter}>
+          <Component {...this.state} {...pageProps} />
+        </Provider>
       </Container>
     );
   }
