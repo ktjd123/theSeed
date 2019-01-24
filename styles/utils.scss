@@ -53,8 +53,6 @@ $default-width: 600px;
   font-size: 1rem;
   border-radius: $border-radius;
   text-align: center;
-  box-sizing: border-box;
-  outline: none;
 }
 
 @mixin button {
