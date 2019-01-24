@@ -5,6 +5,10 @@ import { observer, inject } from 'mobx-react';
 @inject('counter')
 @observer
 class c extends Component {
+  static async getInitialProps({ query }) {
+    return query;
+  }
+
   render() {
     const { counter } = this.props;
     return (
