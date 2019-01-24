@@ -7,9 +7,13 @@ $breakpoints: (
   huge: 1200px
 );
 
-$border-radius: 3px;
+$medium-width: 768px;
 
-$border-color: #aaa;
+$border-radius: 5px;
+
+$border-color: #ddd;
+
+$default-width: 600px;
 
 @mixin flex {
   display: flex;
@@ -57,11 +61,11 @@ $border-color: #aaa;
   @include button-default();
   background: black;
   color: white;
+  border: 1px solid black;
 
   &:active {
     color: black;
     background: white;
-    border: 1px solid black;
   }
 }
 
@@ -74,5 +78,17 @@ $border-color: #aaa;
   &:active {
     color: white;
     background: black;
+  }
+}
+
+@mixin show() {
+  animation: show-animation 0.5s;
+  @keyframes show-animation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
