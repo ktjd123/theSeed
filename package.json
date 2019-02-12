@@ -4,7 +4,7 @@
   "description": "Next.js with Express boilerplate and Mongoose CRUD support",
   "main": "server/index.js",
   "scripts": {
-    "d": "cross-env NODE_ENV=development nodemon -w server -w package.json server/index.js --exec babel-node server/index.js",
+    "d": "cross-env NODE_ENV=development nodemon -w server -w package.json --exec babel-node server/index.js",
     "p": "cross-env NODE_ENV=production node index.js",
     "build": "rm -rf build && babel server -d build/ && next build && mv .next build/.next && cp package.json build",
     "start": "cd build && NODE_ENV=production node index.js",
