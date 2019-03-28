@@ -49,6 +49,7 @@ $default-width: 600px;
 }
 
 @mixin button-default {
+  cursor: pointer;
   display: block;
   padding: 5px 10px;
   font-weight: thin;
