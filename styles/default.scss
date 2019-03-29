@@ -91,6 +91,8 @@ video {
   font: inherit;
   vertical-align: baseline;
   font-family: sans-serif;
+  word-wrap: wrap;
+  word-break: keep-all;
 }
 /* HTML5 display-role reset for older browsers */
 article,
