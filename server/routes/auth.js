@@ -6,6 +6,7 @@ import { Account } from '../models';
 const router = express();
 
 router.get('/check', async (req, res) => {
+  if (!req.session.info) return res.json({ code: 1 });
   const account = await Account.findById(req.session.info._id);
 
   if (!account) {

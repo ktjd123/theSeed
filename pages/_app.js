@@ -7,13 +7,13 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import { css } from 'glamor';
 
 // stores
-import CounterStore from '../store/counter';
+import AuthStore from '../store/auth';
 
 import { PageHead } from '../components';
 
 import '../styles/default.scss';
 
-const counter = new CounterStore();
+const auth = new AuthStore();
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -39,7 +39,7 @@ export default class MyApp extends App {
             background: 'black',
           })}
         />
-        <Provider counter={counter}>
+        <Provider auth={auth}>
           <Component {...this.state} {...pageProps} />
         </Provider>
       </Container>

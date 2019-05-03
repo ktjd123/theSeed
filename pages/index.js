@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
+import { observable, action } from 'mobx';
+import { observer, inject } from 'mobx-react';
 import { PageHead } from '../components';
 
+@observer
 class index extends Component {
   render() {
     return (
@@ -12,5 +14,4 @@ class index extends Component {
     );
   }
 }
-
 export default index;
