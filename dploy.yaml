@@ -1,0 +1,12 @@
+scheme: sftp
+host:
+port: 22
+user: ubuntu
+path:
+  local: build/
+  remote: build/
+exclude: [".DS_Store"]
+include:
+  build/**/*: /
+  build/.next/**/*: /
+privateKey: ~/Documents/cert/dekina.pem
