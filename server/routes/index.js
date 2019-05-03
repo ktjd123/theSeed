@@ -1,12 +1,12 @@
 import express from 'express';
-import kitten from './kittens';
+import auth from './auth';
 
 const router = express();
 
-router.use('/kitten', kitten);
+router.use('/auth', auth);
 
 router.get('/heart_beat', async (req, res) => {
-  res.send('hi');
+  res.send();
 });
 
 export default router;
