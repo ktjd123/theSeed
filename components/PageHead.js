@@ -1,12 +1,16 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-const PageHead = ({ title = '오토봇 PRO', description = '자동 손절 봇', url = 'localhost' }) => (
+const PageHead = ({
+  title = "TheSeed",
+  description = "Description",
+  url = "localhost"
+}) => (
   <Head>
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta charSet="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <link rel="shortcut icon" href="/static/logos/logo-fullcolor512.svg" />
+    <link rel="shortcut icon" href="/static/favicon.ico" />
 
     <meta property="og:site_name" content={title} />
     <meta property="og:type" content="website" />
