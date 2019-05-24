@@ -28,6 +28,8 @@ export default class auth {
     const result = await axios.post(`${API}/login`, { id, pw });
     if (result.data.code) throw result.data.code;
 
+    this.check(true);
+
     return true;
   };
 
