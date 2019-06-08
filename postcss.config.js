@@ -9,7 +9,7 @@ module.exports = {
     // },
     require('postcss-preset-env')({
       autoprefixer: {
-        browsers: ['last 3 versions'],
+        overrideBrowserslist: ['last 3 versions'],
       },
       stage: 3,
     }),
