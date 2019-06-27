@@ -5,7 +5,7 @@ const router = express();
 
 router.use('/auth', auth);
 
-router.get('/heart_beat', async (req, res) => {
+router.get('/heart_beat', async (req: express.Request, res: express.Response) => {
   res.send();
 });
 

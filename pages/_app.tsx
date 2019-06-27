@@ -2,7 +2,7 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import { Provider } from 'mobx-react';
 
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { css } from 'glamor';
 
@@ -28,7 +28,6 @@ export default class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
-
     return (
       <Container>
         <PageHead />

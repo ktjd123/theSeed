@@ -1,20 +1,20 @@
 import express from 'express';
-import joi from 'joi';
+import joi, { string } from 'joi';
 import bcrypt from 'bcryptjs';
 import { Account } from '../models';
 
 const router = express();
 
-router.get('/check', async (req, res) => {
-  if (!req.session.info) return res.json({ code: 1 });
-  const account = await Account.findById(req.session.info._id);
+router.get('/check', async (req: express.Request, res: express.Response) => {
+  if (!req.session!.info) return res.json({ code: 1 });
+  const account = await Account.findById(req.session!.info._id);
 
   if (!account) {
-    res.session.destroy();
+    req.session!.destroy(() => {});
     return res.json({ code: 1 });
   }
 
-  req.session.info = {
+  req.session!.info = {
     _id: account._id,
     id: account.id,
     role: account.role,
@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
 
   if (!bcrypt.compareSync(pw, account.pw)) return res.json({ code: 3 });
 
-  req.session.info = {
+  req.session!.info = {
     _id: account._id,
     id: account.id,
     role: account.role,
