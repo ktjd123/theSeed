@@ -20,10 +20,10 @@ const app = next({ dev });
 const defaultRequestHandler = app.getRequestHandler();
 
 const LOCAL_DB = 'theseed';
+const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost/${LOCAL_DB}`;
 const SESSION_KEY = 'connect.sid';
 const SESSION_SECRET = 'jfoiesofj@#JIFSIOfsjieo@320923';
 const SESSION_DOMAIN = undefined;
-const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost/${LOCAL_DB}`;
 const PORT = process.env.PORT || 3000;
 
 app.prepare().then(() => {
@@ -47,7 +47,7 @@ app.prepare().then(() => {
   const MongoStore = connectMongo(session);
   server.use(
     session({
-      key: SESSION_KEY,
+      // key: SESSION_KEY,
       secret: SESSION_SECRET,
       resave: false,
       saveUninitialized: false,
@@ -67,7 +67,7 @@ app.prepare().then(() => {
   server.use('/api', api);
 
   // Next.js request handling
-  const customRequestHandler = (page, req, res) => {
+  const customRequestHandler = (page: any, req: express.Request, res: express.Response) => {
     // Both query and params will be available in getInitialProps({query})
     const mergedQuery = Object.assign({}, req.query, req.params);
     app.render(req, res, page, mergedQuery);
@@ -76,12 +76,16 @@ app.prepare().then(() => {
   // Routes
   // server.get('/', customRequestHandler.bind(undefined, '/'));
   server.get('/about/:id', customRequestHandler.bind(undefined, '/about'));
-  server.get('*', defaultRequestHandler);
-
-  server.use((err, req, res, next) => {
-    console.error(err.stack);
-    return res.status(500).json({ code: 0 });
+  server.get('*', (req: express.Request, res: express.Response) => {
+    defaultRequestHandler(req, res);
   });
+
+  server.use(
+    (err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+      console.error(err.stack);
+      return res.status(500).json({ code: 0 });
+    },
+  );
 
   server.listen(PORT, () => {
     console.log(
