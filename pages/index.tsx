@@ -5,6 +5,7 @@ import { PageHead } from '../components';
 
 @observer
 class index extends Component {
+  
   render() {
     return (
       <div>

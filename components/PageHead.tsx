@@ -1,6 +1,10 @@
 import Head from 'next/head';
 
-const PageHead = ({ title = 'TheSeed', description = 'Description', url = 'localhost' }) => (
+const PageHead = ({
+  title = '텔레마케터',
+  description = 'Dekina Inc. 제작 텔레 마케터',
+  url = 'localhost',
+}) => (
   <Head>
     <title>{title}</title>
     <meta name="description" content={description} />
