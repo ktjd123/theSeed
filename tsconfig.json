@@ -11,12 +11,16 @@
     "noImplicitAny": true,
     "downlevelIteration": true,
     "sourceMap": true,
-    "typeRoots": ["./types", "./node_moduels/@types"],
+    "typeRoots": ["./@types", "./node_moduels/@types"],
+    "baseUrl": "./",
+    "paths": {
+      "*": ["@types/*"]
+    },
     "strict": true,
     "removeComments": true,
     "experimentalDecorators": true,
     "esModuleInterop": true
   },
-  "include": ["./server/**/*"],
+  "include": ["./src/**/*"],
   "exclude": ["node_moduels", "./build"]
 }
