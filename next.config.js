@@ -2,6 +2,7 @@
 const withSass = require("@zeit/next-sass");
 const withCss = require("@zeit/next-css");
 const withPlugins = require("next-compose-plugins");
+const withTypescript = require("@zeit/next-typescript");
 
 module.exports = withPlugins([
   [withCss],
@@ -18,5 +19,6 @@ module.exports = withPlugins([
         data: "@import 'utils';"
       }
     }
-  ]
+  ],
+  [withTypescript]
 ]);
