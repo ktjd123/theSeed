@@ -1,5 +1,5 @@
 import express from "express";
-import joi, { string } from "joi";
+import joi from "joi";
 import bcrypt from "bcryptjs";
 import { Account } from "../models";
 
