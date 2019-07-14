@@ -1,11 +1,11 @@
-import { observable, action, runInAction } from 'mobx';
-import axios from 'axios';
+import { observable, action, runInAction } from "mobx";
+import axios from "axios";
 
-const API = '/api/auth';
+const API = "/api/auth";
 
 enum roleEnum {
   Admin,
-  User,
+  User
 }
 
 interface authInterface {
@@ -15,10 +15,10 @@ interface authInterface {
 }
 
 export default class auth {
-  @observable auth: authInterface;
+  @observable auth: authInterface | undefined;
 
   @action check = async (renew = false) => {
-    if (renew === false && this.auth._id.length > 0) return this.auth;
+    if (renew === false && typeof this.auth !== undefined) return this.auth;
 
     const result = await axios.get(`${API}/check`);
 
