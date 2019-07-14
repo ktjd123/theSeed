@@ -22,7 +22,7 @@ const defaultRequestHandler = app.getRequestHandler();
 const LOCAL_DB = "theseed";
 const MONGODB_URI =
   process.env.MONGODB_URI || `mongodb://localhost/${LOCAL_DB}`;
-const SESSION_KEY = "connect.sid";
+// const SESSION_KEY = "connect.sid";
 const SESSION_SECRET = "jfoiesofj@#JIFSIOfsjieo@320923";
 const SESSION_DOMAIN = undefined;
 const PORT = process.env.PORT || 3000;

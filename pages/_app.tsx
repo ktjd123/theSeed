@@ -2,7 +2,7 @@ import React from "react";
 import App, { Container } from "next/app";
 import { Provider } from "mobx-react";
 
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { css } from "glamor";
 

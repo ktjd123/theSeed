@@ -18,7 +18,7 @@ export default class auth {
   @observable auth: authInterface | undefined;
 
   @action check = async (renew = false) => {
-    if (renew === false && typeof this.auth !== undefined) return this.auth;
+    if (renew === false && typeof this.auth !== "undefined") return this.auth;
 
     const result = await axios.get(`${API}/check`);
 
