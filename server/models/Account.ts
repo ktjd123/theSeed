@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document } from "mongoose";
 
 interface IAccount extends Document {
   id: string;
@@ -8,13 +8,13 @@ interface IAccount extends Document {
 
 enum ERole {
   Admin,
-  User,
+  User
 }
 
 const Account: Schema = new Schema({
   id: String,
   pw: String,
-  role: { type: String, enum: ['Admin', 'User'], default: 'User' },
+  role: { type: String, enum: ["Admin", "User"], default: "User" }
 });
 
-export default mongoose.model<IAccount>('Account', Account);
+export default mongoose.model<IAccount>("Account", Account);

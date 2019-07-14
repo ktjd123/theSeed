@@ -27,6 +27,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["./server/**/*"],
+  "include": ["./**/*"],
   "exclude": ["node_moduels", "./build"]
 }
