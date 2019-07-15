@@ -4,7 +4,7 @@
   "description": "Next.js with Express boilerplate and Mongoose CRUD support",
   "main": "server/index.js",
   "scripts": {
-    "d": "rm -rf build && cross-env NODE_ENV=development tsc-watch -p tsconfig.json --onSuccess \"node build/server/index.js\"",
+    "d": "rm -rf build && cross-env NODE_ENV=development tsc-watch -p tsconfig.server.json --onSuccess \"node build/index.js\"",
     "p": "cross-env NODE_ENV=production node index.js",
     "build": "rm -rf build && rm -rf .next && tsc -p tsconfig.json && next build && mv .next build/.next && cp package.json build && cp -r static build/static && dploy stage && ssh",
     "start": "cd build && NODE_ENV=production node index.js",
