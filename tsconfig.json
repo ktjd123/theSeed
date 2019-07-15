@@ -13,6 +13,7 @@
     "sourceMap": true,
     "typeRoots": ["./@types", "./node_moduels/@types"],
     "baseUrl": "./",
+    "alwaysStrict": true,
     "paths": {
       "*": ["@types/*"]
     },
@@ -20,13 +21,13 @@
     "removeComments": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
+    "jsx": "preserve",
+    "isolatedModules": true,
+    "noEmit": false,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve"
+    "resolveJsonModule": true
   },
   "include": ["./**/*"],
-  "exclude": ["node_moduels", "./build"]
+  "exclude": ["./node_modules", "./build", "./.next"]
 }

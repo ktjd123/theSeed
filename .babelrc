@@ -1,7 +1,6 @@
 {
   "presets": [
-    ["next/babel", { "transform-runtime": { "useESModules": false } }],
-    "@zeit/next-typescript/babel"
+    ["next/babel", { "transform-runtime": { "useESModules": false } }]
   ],
   "plugins": [
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
