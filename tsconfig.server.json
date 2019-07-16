@@ -11,7 +11,7 @@
     "noImplicitAny": true,
     "downlevelIteration": true,
     "sourceMap": true,
-    "typeRoots": ["./@types", "./node_moduels/@types"],
+    "typeRoots": ["./@types", "./node_modules/@types"],
     "baseUrl": "./",
     "alwaysStrict": true,
     "paths": {
@@ -28,6 +28,6 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": ["./server/**/*"],
+  "include": ["./**/*"],
   "exclude": ["./node_modules", "./build", "./.next"]
 }
