@@ -28,6 +28,6 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": ["./**/*"],
+  "include": ["./server/**/*"],
   "exclude": ["./node_modules", "./build", "./.next"]
 }
