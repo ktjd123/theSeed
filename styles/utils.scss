@@ -30,7 +30,6 @@ $default-width: 600px;
 @mixin box($width) {
   width: $width;
   padding: 10px;
-  @include flex-column();
   border: 1px solid #ddd;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.16);
   background: white;
