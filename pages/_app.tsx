@@ -1,5 +1,5 @@
 import React from "react";
-import App, { Container } from "next/app";
+import App from "next/app";
 import { Provider } from "mobx-react";
 
 import { ToastContainer } from "react-toastify";
@@ -19,7 +19,7 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <Container>
+      <Provider auth={auth}>
         <PageHead />
         <ToastContainer
           autoClose={3000}
@@ -28,10 +28,8 @@ export default class MyApp extends App {
             background: "black"
           })}
         />
-        <Provider auth={auth}>
-          <Component {...this.state} {...pageProps} />
-        </Provider>
-      </Container>
+        <Component {...this.state} {...pageProps} />
+      </Provider>
     );
   }
 }
