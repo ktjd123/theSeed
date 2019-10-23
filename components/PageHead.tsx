@@ -8,7 +8,7 @@ const PageHead = ({
   <Head>
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta charset="utf-8" />
+    <meta charSet="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <link rel="shortcut icon" href="/static/favicon.ico" />
 
