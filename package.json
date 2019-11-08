@@ -6,7 +6,7 @@
   "scripts": {
     "d": "rm -rf build && cross-env NODE_ENV=development tsc-watch -p tsconfig.server.json --onSuccess \"node build/index.js\"",
     "p": "cross-env NODE_ENV=production node index.js",
-    "build": "rm -rf .next && tsc -p tsconfig.json && next build && mv .next build/.next && cp package.json build && cp -r static build/static && dploy stage && yarn ssh",
+    "build": "rm -rf .next && rm -rf build && tsc -p tsconfig.server.json && next build && mv .next build/.next && cp package.json build && cp -r static build/static && dploy stage && yarn ssh",
     "start": "cd build && NODE_ENV=production node index.js",
     "ssh": "ssh ubuntu@13.125.57.50 -i ~/Aiaikasa.pem"
   },
