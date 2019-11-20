@@ -8,7 +8,7 @@
     "p": "cross-env NODE_ENV=production node index.js",
     "build": "rm -rf .next && rm -rf build && tsc -p tsconfig.server.json && next build && mv .next build/.next && cp package.json build && cp -r public build/public && dploy stage && yarn ssh",
     "start": "cd build && NODE_ENV=production node index.js",
-    "ssh": "ssh ubuntu@13.125.57.50 -i ~/Aiaikasa.pem"
+    "ssh": "ssh ubuntu@ -i ~/Documents/cert/Dekina.pem"
   },
   "license": "ISC",
   "dependencies": {
