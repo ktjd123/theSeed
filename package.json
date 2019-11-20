@@ -12,6 +12,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@hapi/joi": "^14.3.1",
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -23,7 +24,6 @@
     "express-session": "^1.17.0",
     "glamor": "^2.20.40",
     "include-media": "^1.4.9",
-    "joi": "^14.3.1",
     "mobx": "^5.15.0",
     "mobx-react": "^6.1.4",
     "mongoose": "^5.7.12",
@@ -50,6 +50,7 @@
     "@types/connect-mongo": "^3.0.0",
     "@types/express": "^4.17.2",
     "@types/express-session": "^1.15.16",
+    "@types/hapi__joi": "^16.0.3",
     "@types/joi": "^14.3.4",
     "@types/mongoose": "^5.5.32",
     "@types/morgan": "^1.7.37",

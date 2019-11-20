@@ -1,5 +1,5 @@
 import express from "express";
-import joi from "joi";
+import joi from "@hapi/joi";
 import bcrypt from "bcryptjs";
 import { Account } from "../models";
 
@@ -39,7 +39,7 @@ router.post("/login", async (req, res) => {
       .required()
   });
 
-  const result = joi.validate(req.body, schema);
+  const result = schema.validate(req.body);
 
   if (result.error) return res.json({ code: 1 });
 
@@ -75,7 +75,7 @@ router.post("/register", async (req, res) => {
       .required()
   });
 
-  const result = joi.validate(req.body, schema);
+  const result = schema.validate(req.body);
 
   if (result.error) return res.json({ code: 1 });
 
