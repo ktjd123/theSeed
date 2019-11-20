@@ -25,7 +25,7 @@ const MONGODB_URI =
 // const SESSION_KEY = "connect.sid";
 const SESSION_SECRET = "jfoiesofj@#JIFSIOfsjieo@320923";
 const SESSION_DOMAIN = undefined;
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.NODE_ENV === "development" ? 80 : 3000;
 
 app.prepare().then(() => {
   // Parse application/x-www-form-urlencoded
