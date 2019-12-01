@@ -43,7 +43,8 @@ app.prepare().then(() => {
   mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    autoIndex: true
+    autoIndex: true,
+    autoReconnect: true
   });
   const db = mongoose.connection;
   db.on("error", console.error.bind(console, "connection error:"));
