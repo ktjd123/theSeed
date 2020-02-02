@@ -27,7 +27,7 @@ const SESSION_SECRET = "jfoiesofj@#JIFSIOfsjieo@320923";
 const SESSION_DOMAIN = undefined;
 const PORT = process.env.NODE_ENV === "development" ? 80 : 3000;
 
-app.prepare().then(() => {
+app.prepare().then(async () => {
   // Parse application/x-www-form-urlencoded
   server.use(bodyParser.urlencoded({ extended: false }));
   // Parse application/json
@@ -40,14 +40,17 @@ app.prepare().then(() => {
   // MongoDB
   // mongoose.set('debug', true);
   mongoose.Promise = global.Promise;
-  mongoose.connect(MONGODB_URI, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    autoIndex: true
-  });
-  const db = mongoose.connection;
-  db.on("error", console.error.bind(console, "connection error:"));
+  await mongoose
+    .connect(MONGODB_URI, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      autoIndex: true
+    })
+    .catch(() => {
+      console.error("DB NOT CONNECTED");
+      process.exit();
+    });
 
   // Session
   const MongoStore = connectMongo(session);
