@@ -41,10 +41,10 @@ app.prepare().then(() => {
   // mongoose.set('debug', true);
   mongoose.Promise = global.Promise;
   mongoose.connect(MONGODB_URI, {
+    useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
-    autoIndex: true,
-    autoReconnect: true
+    autoIndex: true
   });
   const db = mongoose.connection;
   db.on("error", console.error.bind(console, "connection error:"));
