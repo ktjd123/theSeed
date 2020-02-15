@@ -45,7 +45,8 @@ app.prepare().then(async () => {
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useCreateIndex: true,
-      autoIndex: true
+      autoIndex: true,
+      poolSize: 1000
     })
     .catch(() => {
       console.error("DB NOT CONNECTED");
