@@ -5,13 +5,13 @@ import { PageHead } from "../components";
 
 @observer
 class index extends Component {
-  render() {
-    return (
-      <div>
-        <PageHead />
-        theseed
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<PageHead />
+				theseed
+			</div>
+		);
+	}
 }
 export default index;
