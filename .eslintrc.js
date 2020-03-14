@@ -14,6 +14,7 @@ module.exports = {
 		"react/jsx-filename-extension": [1, { extensions: [".tsx"] }],
 		"no-underscore-dangle": "off",
 		"@typescript-eslint/explicit-function-return-type": "off",
+		"@typescript-eslint/no-empty-interface": "off",
 		"import/extensions": [
 			"error",
 			"ignorePackages",
