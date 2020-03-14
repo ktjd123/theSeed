@@ -20,6 +20,7 @@ p,
 blockquote,
 pre,
 a,
+button,
 abbr,
 acronym,
 address,
@@ -84,15 +85,15 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  font-family: sans-serif;
-  word-wrap: break-word;
-  word-break: break-all;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: middle;
+	font-family: sans-serif;
+	word-wrap: break-word;
+	word-break: break-all;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -106,54 +107,54 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+	display: block;
 }
 body {
-  line-height: 1;
+	line-height: 1;
 }
 ol,
 ul {
-  list-style: none;
+	list-style: none;
 }
 blockquote,
 q {
-  quotes: none;
+	quotes: none;
 }
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
-  content: none;
+	content: '';
+	content: none;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 /* Aiaikasa Custom */
 
-@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&subset=korean");
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700&subset=korean');
 * {
-  outline: none;
-  box-sizing: border-box;
+	outline: none;
+	box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background: #f1f3f5;
-  font-family: "Nanum Gothic", sans-serif;
+	margin: 0;
+	background: #f1f3f5;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 a,
 button {
-  color: initial;
-  text-decoration: none;
-  cursor: pointer;
-  color: black;
+	color: initial;
+	text-decoration: none;
+	cursor: pointer;
+	color: black;
 }
 
 i {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
