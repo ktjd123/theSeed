@@ -1,7 +1,11 @@
 module.exports = {
 	parser: '@typescript-eslint/parser',
+	env: {
+		browser: true,
+		node: true,
+	},
 	parserOptions: {
-		tsconfigRootDir: './tsconfig.json'
+		tsconfigRootDir: './tsconfig.json',
 	},
 	plugins: ['@typescript-eslint'],
 	extends: [
@@ -11,7 +15,7 @@ module.exports = {
 		'prettier/react',
 		'plugin:@typescript-eslint/recommended',
 		'prettier/@typescript-eslint',
-		'plugin:prettier/recommended'
+		'plugin:prettier/recommended',
 	],
 	rules: {
 		'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
@@ -26,15 +30,15 @@ module.exports = {
 				js: 'never',
 				jsx: 'never',
 				ts: 'never',
-				tsx: 'never'
-			}
-		]
+				tsx: 'never',
+			},
+		],
 	},
 	settings: {
 		'import/resolver': {
 			node: {
-				extensions: ['.js', '.jsx', '.ts', '.tsx']
-			}
-		}
-	}
+				extensions: ['.js', '.jsx', '.ts', '.tsx'],
+			},
+		},
+	},
 };
