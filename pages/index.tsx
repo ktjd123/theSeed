@@ -7,12 +7,12 @@ import { PageHead } from '../components';
 interface Props {}
 @observer
 export default class Index extends Component<Props> {
-	render() {
-		return (
-			<div>
-				<PageHead title="the seed" />
-				hello
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <PageHead title="the seed" />
+        hello
+      </div>
+    );
+  }
 }
