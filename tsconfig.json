@@ -14,9 +14,6 @@
     "typeRoots": ["./@types", "./node_moduels/@types"],
     "baseUrl": "./",
     "alwaysStrict": true,
-    "paths": {
-      "*": ["@types/*"]
-    },
     "strict": true,
     "removeComments": true,
     "experimentalDecorators": true,
