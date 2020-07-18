@@ -45,7 +45,7 @@ app.prepare().then(async () => {
       useNewUrlParser: true,
       useCreateIndex: true,
       autoIndex: true,
-      poolSize: 1000,
+      // poolSize: 1000,
     })
     .catch(() => {
       console.error('DB NOT CONNECTED');
