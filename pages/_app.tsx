@@ -4,7 +4,6 @@ import { Provider } from 'mobx-react';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-import { css } from 'glamor';
 
 // stores
 import AuthStore from '../store/auth';
@@ -21,13 +20,7 @@ export default class MyApp extends App {
     return (
       <Provider auth={auth}>
         <PageHead />
-        <ToastContainer
-          autoClose={3000}
-          position="bottom-center"
-          toastClassName={css({
-            background: 'black',
-          })}
-        />
+        <ToastContainer autoClose={3000} position="bottom-center" />
         <Component {...this.state} {...pageProps} />
       </Provider>
     );

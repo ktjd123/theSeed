@@ -2,15 +2,15 @@
   "name": "nextjs-express-mongoose-crudify-boilerplate",
   "version": "3.0.0",
   "description": "Next.js with Express boilerplate and Mongoose CRUD support",
+  "license": "ISC",
   "main": "server/index.js",
   "scripts": {
+    "build": "rm -rf .next && rm -rf build && tsc -p tsconfig.server.json && next build && mv .next build/.next && cp package.json build && cp -r public build/public && dploy stage && yarn ssh",
     "d": "rm -rf build && cross-env NODE_ENV=development tsc-watch -p tsconfig.server.json --onSuccess \"node build/index.js\"",
     "p": "cross-env NODE_ENV=production node index.js",
-    "build": "rm -rf .next && rm -rf build && tsc -p tsconfig.server.json && next build && mv .next build/.next && cp package.json build && cp -r public build/public && dploy stage && yarn ssh",
-    "start": "cd build && node index.js",
-    "ssh": "ssh ubuntu@ -i ~/Documents/cert/Dekina.pem"
+    "ssh": "ssh ubuntu@ -i ~/Documents/cert/Dekina.pem",
+    "start": "cd build && node index.js"
   },
-  "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "axios": "^0.20.0",
@@ -22,7 +22,6 @@
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "glamor": "^2.20.40",
     "include-media": "^1.4.9",
     "mobx": "^5.15.6",
     "mobx-react": "^6.3.0",
