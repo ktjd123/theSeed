@@ -1,7 +1,5 @@
 {
-  "presets": [
-    ["next/babel", { "transform-runtime": { "useESModules": false } }]
-  ],
+  "presets": [["next/babel", { "transform-runtime": { "useESModules": false } }]],
   "plugins": [
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     ["@babel/plugin-proposal-class-properties", { "loose": true }]
