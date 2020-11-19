@@ -1,3 +1,4 @@
+// @ts-nocheck
 import express from 'express';
 import joi from '@hapi/joi';
 import bcrypt from 'bcryptjs';
@@ -6,15 +7,15 @@ import { Account } from '../models';
 const router = express();
 
 router.get('/check', async (req, res) => {
-  if (!req.session!.info) return res.json({ code: 1 });
-  const account = await Account.findById(req.session!.info._id, { _id: true, id: true, role: true }).lean();
+  if (!req.session || !req.session.info) return res.json({ code: 1 });
+  const account = await Account.findById(req.session.info._id, { _id: true, id: true, role: true }).lean();
 
   if (!account) {
     req.session!.destroy(() => {});
     return res.json({ code: 1 });
   }
 
-  req.session!.info = {
+  req.session.info = {
     _id: account._id,
     // @ts-ignore
     id: account.id,
@@ -41,7 +42,7 @@ router.post('/login', async (req, res) => {
 
   if (!bcrypt.compareSync(pw, account.pw)) return res.json({ code: 3 });
 
-  req.session!.info = {
+  req.session.info = {
     _id: account._id,
     // @ts-ignore
     id: account.id,
@@ -73,7 +74,7 @@ router.post('/register', async (req, res) => {
 
   await newAccount.save();
 
-  req.session!.info = {
+  req.session.info = {
     _id: newAccount._id,
     id: newAccount.id,
     role: newAccount.role,
