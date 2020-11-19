@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 // stores
-import AuthStore from '../store/auth';
+import { AuthStore } from '../store';
 
 import { PageHead } from '../components';
 

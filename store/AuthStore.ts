@@ -1,4 +1,4 @@
-import { observable, action, runInAction } from 'mobx';
+import { observable, action, runInAction, makeAutoObservable } from 'mobx';
 import axios from 'axios';
 
 const API = '/api/auth';
@@ -15,6 +15,12 @@ interface authInterface {
 }
 
 export default class auth {
+  constructor() {
+    makeAutoObservable(this);
+  }
+
+  @observable a = 1;
+
   @observable auth: authInterface | undefined;
 
   @action check = async (renew = false) => {
