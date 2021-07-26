@@ -8,7 +8,7 @@ import next from 'next';
 import compression from 'compression';
 import morgan from 'morgan';
 
-import connectMongo from 'connect-mongo';
+import MongoStore from 'connect-mongo';
 import session from 'express-session';
 
 import api from './routes';
@@ -39,7 +39,7 @@ app.prepare().then(async () => {
   // MongoDB
   // mongoose.set('debug', true);
   mongoose.Promise = global.Promise;
-  await mongoose
+  const mongooseClient = await mongoose
     .connect(MONGODB_URI, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
@@ -47,13 +47,13 @@ app.prepare().then(async () => {
       autoIndex: true,
       // poolSize: 1000,
     })
+    .then((m) => m.connection.getClient())
     .catch(() => {
       console.error('DB NOT CONNECTED');
       process.exit();
     });
 
   // Session
-  const MongoStore = connectMongo(session);
   server.use(
     session({
       // key: SESSION_KEY,
@@ -65,8 +65,8 @@ app.prepare().then(async () => {
         maxAge: 365 * (24 * 60 * 60 * 1000),
         domain: dev ? undefined : SESSION_DOMAIN,
       },
-      store: new MongoStore({
-        mongooseConnection: mongoose.connection,
+      store: MongoStore.create({
+        client: mongooseClient,
         ttl: 365 * (24 * 60 * 60 * 1000),
       }),
     })

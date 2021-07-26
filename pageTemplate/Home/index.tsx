@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
+import ClassNames from 'classnames/bind';
 import { observable, action } from 'mobx';
 import { observer, inject } from 'mobx-react';
+import styles from './index.module.scss';
 
-import { PageHead } from '../components';
-import { Home } from '../pageTemplate';
+const cx = ClassNames.bind(styles);
 
 interface Props {}
 @observer
 export default class Index extends Component<Props> {
   render() {
-    return (
-      <div>
-        <PageHead title="the seed" />
-
-        <Home />
-      </div>
-    );
+    return <div className={cx('main')}>hi</div>;
   }
 }

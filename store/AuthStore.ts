@@ -19,11 +19,11 @@ export default class auth {
     makeAutoObservable(this);
   }
 
-  @observable a = 1;
+  a = 1;
 
-  @observable auth: authInterface | undefined;
+  auth: authInterface | undefined;
 
-  @action check = async (renew = false) => {
+  check = async (renew = false) => {
     if (renew === false && typeof this.auth !== 'undefined') return this.auth;
 
     const result = await axios.get(`${API}/check`);
@@ -37,7 +37,7 @@ export default class auth {
     return this.auth;
   };
 
-  @action login = async (id: string, pw: string) => {
+  login = async (id: string, pw: string) => {
     const result = await axios.post(`${API}/login`, { id, pw });
     if (result.data.code) throw result.data.code;
 
@@ -46,7 +46,7 @@ export default class auth {
     return true;
   };
 
-  @action register = async (id: string, pw: string) => {
+  register = async (id: string, pw: string) => {
     const result = await axios.post(`${API}/register`, { id, pw });
     if (result.data.code) throw result.data.code;
 

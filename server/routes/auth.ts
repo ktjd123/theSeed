@@ -17,7 +17,6 @@ router.get('/check', async (req, res) => {
 
   req.session.info = {
     _id: account._id,
-    // @ts-ignore
     id: account.id,
     role: account.role,
   };
@@ -37,14 +36,13 @@ router.post('/login', async (req, res) => {
 
   const { id, pw } = result.value;
 
-  const account = await Account.findOne({ id }, { _id: true, id: true, role: true }).lean();
+  const account = await Account.findOne({ id }, { _id: true, id: true, pw: true, role: true }).lean();
   if (!account) return res.json({ code: 2 });
 
   if (!bcrypt.compareSync(pw, account.pw)) return res.json({ code: 3 });
 
   req.session.info = {
     _id: account._id,
-    // @ts-ignore
     id: account.id,
     role: account.role,
   };
