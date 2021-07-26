@@ -1,7 +1,7 @@
 {
-  "name": "nextjs-express-mongoose-crudify-boilerplate",
+  "name": "dekina-accounts",
   "version": "3.0.0",
-  "description": "Next.js with Express boilerplate and Mongoose CRUD support",
+  "description": "Dekina accounts service",
   "license": "Every rights associated with Dekina Inc.",
   "main": "server/index.js",
   "scripts": {
