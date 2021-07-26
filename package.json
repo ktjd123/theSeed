@@ -1,8 +1,8 @@
 {
-  "name": "dekina-accounts",
+  "name": "theeseed",
   "version": "1.0.0",
-  "description": "Dekina accounts service",
-  "license": "UNLICENSED",
+  "description": "TheSeed",
+  "license": "MIT",
   "main": "server/index.js",
   "scripts": {
     "build": "rm -rf .next && rm -rf build && tsc -p tsconfig.server.json && next build && mv .next build/.next && cp package.json build && cp -r public build/public && dploy stage && yarn ssh",
