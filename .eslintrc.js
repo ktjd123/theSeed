@@ -12,9 +12,7 @@ module.exports = {
     'prettier',
     'airbnb',
     'airbnb/hooks',
-    'prettier/react',
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
   ],
   rules: {

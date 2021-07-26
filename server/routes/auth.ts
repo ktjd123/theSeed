@@ -1,7 +1,8 @@
 // @ts-nocheck
 import express from 'express';
-import joi from '@hapi/joi';
+import joi from 'joi';
 import bcrypt from 'bcryptjs';
+
 import { Account } from '../models';
 
 const router = express();

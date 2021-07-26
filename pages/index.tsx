@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { observable, action } from 'mobx';
 import { observer, inject } from 'mobx-react';
 
-import { PageHead } from '../components';
 import { Home } from '../pageTemplate';
+import { PageHead } from '../components';
 
 interface Props {}
 @observer
