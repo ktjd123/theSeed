@@ -9,7 +9,7 @@ const router = express();
 
 router.get('/check', async (req, res) => {
   if (!req.session || !req.session.info) return res.json({ code: 1 });
-  const account = await Account.findById(req.session.info._id, { _id: true, id: true, role: true }).lean();
+  const account = await Account.findById(req.session.info._id, { _id: true, id: true }).lean();
 
   if (!account) {
     req.session!.destroy(() => {});
@@ -37,7 +37,7 @@ router.post('/login', async (req, res) => {
 
   const { id, pw } = result.value;
 
-  const account = await Account.findOne({ id }, { _id: true, id: true, pw: true, role: true }).lean();
+  const account = await Account.findOne({ id }, { _id: true, id: true, pw: true}).lean();
   if (!account) return res.json({ code: 2 });
 
   if (!bcrypt.compareSync(pw, account.pw)) return res.json({ code: 3 });
