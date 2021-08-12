@@ -1,5 +1,5 @@
 // const express = require('express');
-import express from 'express';
+import express, { ErrorRequestHandler } from 'express';
 
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
@@ -72,6 +72,12 @@ app.prepare().then(async () => {
     })
   );
 
+  const errHandler: ErrorRequestHandler = (err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something Broke');
+  };
+
+  server.use(errHandler);
   // API routes
   server.use('/api', api);
 
