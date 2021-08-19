@@ -1,4 +1,3 @@
-// @ts-nocheck
 import express from 'express';
 import joi from 'joi';
 import bcrypt from 'bcryptjs';
@@ -37,7 +36,7 @@ router.post('/login', async (req, res) => {
 
   const { id, pw } = result.value;
 
-  const account = await Account.findOne({ id }, { _id: true, id: true, pw: true}).lean();
+  const account = await Account.findOne({ id }, { _id: true, id: true, pw: true }).lean();
   if (!account) return res.json({ code: 2 });
 
   if (!bcrypt.compareSync(pw, account.pw)) return res.json({ code: 3 });
