@@ -4,7 +4,7 @@
   "scripts": {
     "build-server": "swc server -d build",
     "run-dev-server": "yarn build-server && node build/index.js",
-    "start": "cross-env NODE_ENV=development nodemon --watch server/ --ext ts --exec yarn start",
+    "start": "cross-env NODE_ENV=development nodemon --watch server/ --ext ts --exec yarn run-dev-server",
     "build": "next build",
     "build-start": "next start",
     "lint": "next lint"
