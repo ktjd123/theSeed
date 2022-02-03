@@ -9,7 +9,6 @@
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
-.yarn/install-state.gz
 
 # testing
 /coverage
