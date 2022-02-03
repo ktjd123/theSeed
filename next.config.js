@@ -1,11 +1,10 @@
-const path = require('path');
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  experimental: {
+    swcFileReading: false,
+  }
+}
 
-module.exports = {
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-    additionalData: "@import 'utils';",
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-};
+module.exports = nextConfig
