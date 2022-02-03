@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 import {} from "mobx";
 import { observer, inject } from "mobx-react";
+import styles from "./index.module.scss";
 
-import { Home } from "../containers";
-
-interface Props {}
+interface Props extends React.HtmlHTMLAttributes<HTMLDivElement> {}
 
 @observer
 export default class Index extends Component<Props> {
   render() {
-    return (
-      <div>
-        <Home />
-      </div>
-    );
+    return <div>TheSeed</div>;
   }
 }

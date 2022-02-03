@@ -1003,7 +1003,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bson@npm:^4.2.2, bson@npm:^4.6.0":
+"bson@npm:^4.2.2, bson@npm:^4.6.0, bson@npm:^4.6.1":
   version: 4.6.1
   resolution: "bson@npm:4.6.1"
   dependencies:
@@ -1224,6 +1224,13 @@ __metadata:
     write-file-atomic: ^3.0.0
     xdg-basedir: ^4.0.0
   checksum: 60ef65d493b63f96e14b11ba7ec072fdbf3d40110a94fb7199d1c287761bdea5c5244e76b2596325f30c1b652213aa75de96ea20afd4a5f82065e61ea090988e
+  languageName: node
+  linkType: hard
+
+"confusing-browser-globals@npm:^1.0.10":
+  version: 1.0.11
+  resolution: "confusing-browser-globals@npm:1.0.11"
+  checksum: 3afc635abd37e566477f610e7978b15753f0e84025c25d49236f1f14d480117185516bdd40d2a2167e6bed8048641a9854964b9c067e3dcdfa6b5d0ad3c3a5ef
   languageName: node
   linkType: hard
 
@@ -1610,6 +1617,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-config-airbnb-base@npm:^15.0.0":
+  version: 15.0.0
+  resolution: "eslint-config-airbnb-base@npm:15.0.0"
+  dependencies:
+    confusing-browser-globals: ^1.0.10
+    object.assign: ^4.1.2
+    object.entries: ^1.1.5
+    semver: ^6.3.0
+  peerDependencies:
+    eslint: ^7.32.0 || ^8.2.0
+    eslint-plugin-import: ^2.25.2
+  checksum: 38626bad2ce2859fccac86b30cd2b86c9b7d8d71d458331860861dc05290a5b198bded2f4fb89efcb9046ec48f8ab4c4fb00365ba8916f27b172671da28b93ea
+  languageName: node
+  linkType: hard
+
+"eslint-config-airbnb@npm:^19.0.4":
+  version: 19.0.4
+  resolution: "eslint-config-airbnb@npm:19.0.4"
+  dependencies:
+    eslint-config-airbnb-base: ^15.0.0
+    object.assign: ^4.1.2
+    object.entries: ^1.1.5
+  peerDependencies:
+    eslint: ^7.32.0 || ^8.2.0
+    eslint-plugin-import: ^2.25.3
+    eslint-plugin-jsx-a11y: ^6.5.1
+    eslint-plugin-react: ^7.28.0
+    eslint-plugin-react-hooks: ^4.3.0
+  checksum: 253178689c3c80eef2567e3aaf0612e18973bc9cf51d9be36074b5dd58210e8b6942200a424bcccbb81ac884e41303479ab09f251a2a97addc2de61efdc9576c
+  languageName: node
+  linkType: hard
+
 "eslint-config-next@npm:12.0.8":
   version: 12.0.8
   resolution: "eslint-config-next@npm:12.0.8"
@@ -1631,6 +1670,17 @@ __metadata:
     typescript:
       optional: true
   checksum: 8a038367e56c8b3ad496ee42b2d7ee2f2b5d58ccd7ce0f97f0f874ad9e18f0ba752f560afadd1e5d51ee2ba3048073c4ae9e8a7e8bffcd384eaf934316100208
+  languageName: node
+  linkType: hard
+
+"eslint-config-prettier@npm:^8.3.0":
+  version: 8.3.0
+  resolution: "eslint-config-prettier@npm:8.3.0"
+  peerDependencies:
+    eslint: ">=7.0.0"
+  bin:
+    eslint-config-prettier: bin/cli.js
+  checksum: df4cea3032671995bb5ab07e016169072f7fa59f44a53251664d9ca60951b66cdc872683b5c6a3729c91497c11490ca44a79654b395dd6756beb0c3903a37196
   languageName: node
   linkType: hard
 
@@ -1670,7 +1720,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:^2.25.2":
+"eslint-plugin-import@npm:^2.25.2, eslint-plugin-import@npm:^2.25.4":
   version: 2.25.4
   resolution: "eslint-plugin-import@npm:2.25.4"
   dependencies:
@@ -1724,7 +1774,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.27.0":
+"eslint-plugin-react@npm:^7.27.0, eslint-plugin-react@npm:^7.28.0":
   version: 7.28.0
   resolution: "eslint-plugin-react@npm:7.28.0"
   dependencies:
@@ -3132,6 +3182,45 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mobx-react-lite@npm:^3.2.0":
+  version: 3.2.3
+  resolution: "mobx-react-lite@npm:3.2.3"
+  peerDependencies:
+    mobx: ^6.1.0
+    react: ^16.8.0 || ^17
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: d645e3c76f29ab22e4125f372531e00a776bd3833d3aab5cab2631e0eb1a90aa6cd36aa78ef1a27b53489eac89335bbdbb3b2c4f0c15248e8d306cd15b555931
+  languageName: node
+  linkType: hard
+
+"mobx-react@npm:^7.2.1":
+  version: 7.2.1
+  resolution: "mobx-react@npm:7.2.1"
+  dependencies:
+    mobx-react-lite: ^3.2.0
+  peerDependencies:
+    mobx: ^6.1.0
+    react: ^16.8.0 || ^17
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: ddcdab16ce0977dd8e0b9d324f43c0ef5d9de491b4ad881eaf18f127a967e88d916fd580597decc2eac6617f30f444bdf620be540e487194e3391738b2c3b7b2
+  languageName: node
+  linkType: hard
+
+"mobx@npm:^6.3.13":
+  version: 6.3.13
+  resolution: "mobx@npm:6.3.13"
+  checksum: 2ab413a323d127081cfc749771aea5f6f6fc3c0f573dc147144356694c2f804df1a0b19cc0cac0e37d236d47d0c767571fa7a6b448dd1f9cb7e05dcad90506bc
+  languageName: node
+  linkType: hard
+
 "mongodb-connection-string-url@npm:^2.3.2":
   version: 2.4.1
   resolution: "mongodb-connection-string-url@npm:2.4.1"
@@ -3139,6 +3228,16 @@ __metadata:
     "@types/whatwg-url": ^8.2.1
     whatwg-url: ^11.0.0
   checksum: 119c908ab543f75cf80e2b29b1034071d85d8c59a93515125b10bf97b428a1c051a1dc011388961fcc733fc48972a375d70d5a8e7faa0ac7c5ab701aff7678bd
+  languageName: node
+  linkType: hard
+
+"mongodb-connection-string-url@npm:^2.4.1":
+  version: 2.4.2
+  resolution: "mongodb-connection-string-url@npm:2.4.2"
+  dependencies:
+    "@types/whatwg-url": ^8.2.1
+    whatwg-url: ^11.0.0
+  checksum: aed2718840c79f8d6be35309e308bf4466a009256da6b02e6212abeef39ae27bf6101273580696e246e51ee4f7471e2d938c44e8f8a5194982092f692b37c571
   languageName: node
   linkType: hard
 
@@ -3154,6 +3253,22 @@ __metadata:
     saslprep:
       optional: true
   checksum: 645cc8889ee093c0d6479638aa4f5b3e587b84be5179a35993f0796fda6b25d22c4b6f7d5f27b4d23c3aacb694db2ff696ea0a5080ddc745508ffff95131f3b5
+  languageName: node
+  linkType: hard
+
+"mongodb@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "mongodb@npm:4.3.1"
+  dependencies:
+    bson: ^4.6.1
+    denque: ^2.0.1
+    mongodb-connection-string-url: ^2.4.1
+    saslprep: ^1.0.3
+    socks: ^2.6.1
+  dependenciesMeta:
+    saslprep:
+      optional: true
+  checksum: 5684b5481bfbf73e4628b8bad7018cd4436fdb23b9548fb38dece3e079b1716fe870d41070a505d13ae4d86c107315afaf34891ba2b64925eb4fa4cd5bb70300
   languageName: node
   linkType: hard
 
@@ -4458,9 +4573,18 @@ __metadata:
     connect-mongo: ^4.6.0
     cross-env: ^7.0.3
     eslint: 8.7.0
+    eslint-config-airbnb: ^19.0.4
     eslint-config-next: 12.0.8
+    eslint-config-prettier: ^8.3.0
+    eslint-plugin-import: ^2.25.4
+    eslint-plugin-jsx-a11y: ^6.5.1
+    eslint-plugin-react: ^7.28.0
+    eslint-plugin-react-hooks: ^4.3.0
     express: ^4.17.2
     express-session: ^1.17.2
+    mobx: ^6.3.13
+    mobx-react: ^7.2.1
+    mongodb: ^4.3.1
     mongoose: ^6.1.8
     morgan: ^1.10.0
     next: 12.0.8

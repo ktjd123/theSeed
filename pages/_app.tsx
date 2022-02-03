@@ -1,8 +1,15 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import App from "next/app";
+import {} from "mobx";
+import { observer, Provider } from "mobx-react";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+@observer
+export default class Index extends App {
+  render() {
+    const { Component, pageProps } = this.props;
+    return (
+      <Provider>
+        <Component {...pageProps} />
+      </Provider>
+    );
+  }
 }
-
-export default MyApp
