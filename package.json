@@ -10,6 +10,7 @@
     "pre-build": "rm -rf build && rm -rf .next",
     "post-build": "cp -r .next build && cp -r public build && cp -r package.json build && cp -r .yarnrc.yml build",
     "build-start": "NODE_ENV=production node build/index.js",
+    "server-start": "NODE_ENV=production yarn node build/index.js",
     "lint": "next lint"
   },
   "dependencies": {
