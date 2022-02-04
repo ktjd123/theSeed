@@ -8,7 +8,7 @@
     "start": "cross-env NODE_ENV=development nodemon --watch server/ --ext ts --exec yarn run-dev-server",
     "build": "yarn pre-build && yarn build-server && next build && yarn post-build",
     "pre-build": "rm -rf build && rm -rf .next",
-    "post-build": "cp -r .next build && cp -r public build && cp -r package.json build && cp -r .yarnrc.yml build",
+    "post-build": "cp -r .next build && cp -r public build && cp -r package.json build && cp yarn.lock build",
     "build-start": "NODE_ENV=production node build/index.js",
     "server-start": "NODE_ENV=production yarn node build/index.js",
     "lint": "next lint"

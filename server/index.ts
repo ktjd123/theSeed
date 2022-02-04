@@ -50,7 +50,9 @@ app.prepare().then(async () => {
 
   // TODO CHECK THIS
   // Security headers
-  server.use(helmet({ contentSecurityPolicy: false }));
+  server.use(
+    helmet({ contentSecurityPolicy: false, dnsPrefetchControl: false })
+  );
 
   server.use("/api", api);
 
