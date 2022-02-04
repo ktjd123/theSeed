@@ -18,6 +18,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
+    "helmet": "^5.0.2",
     "mobx": "^6.3.13",
     "mobx-react": "^7.2.1",
     "mongodb": "^4.3.1",

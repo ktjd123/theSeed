@@ -1,9 +1,10 @@
 import express from "express";
+import helmet from "helmet";
 import morgan from "morgan";
 import cors from "cors";
-// import session from "express-session";
+import session from "express-session";
 import mongoose from "mongoose";
-// import MongoStore from "connect-mongo";
+import MongoStore from "connect-mongo";
 import next from "next";
 
 import api from "./routes";
@@ -12,7 +13,7 @@ const server = express();
 
 const dev = process.env.NODE_ENV === "development";
 const app = next({ dev });
-app.prepare().then(() => {
+app.prepare().then(async () => {
   server.use(express.urlencoded({ extended: true, limit: "10mb" }));
   server.use(express.json({ limit: "10mb" }));
 
@@ -24,6 +25,32 @@ app.prepare().then(() => {
   }
 
   mongoose.Promise = global.Promise;
+  const LOCAL_DB = "theseed";
+  const MONGODB_URI = `mongodb://localhost/${LOCAL_DB}`;
+  await mongoose.connect(MONGODB_URI).catch(() => {
+    console.error("DB NOT CONNECTED");
+  });
+  server.use(
+    session({
+      name: "DEKINA_SESSION",
+      secret: `aj@3js0asjf$2js,>js`,
+      resave: false,
+      saveUninitialized: false,
+      rolling: true,
+      cookie: {
+        maxAge: 365 * (24 * 60 * 60 * 1000),
+        sameSite: true,
+      },
+      store: MongoStore.create({
+        mongoUrl: MONGODB_URI,
+        ttl: 365 * (24 * 60 * 60 * 1000),
+      }),
+    })
+  );
+
+  // TODO CHECK THIS
+  // Security headers
+  server.use(helmet({ contentSecurityPolicy: false }));
 
   server.use("/api", api);
 

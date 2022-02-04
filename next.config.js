@@ -4,7 +4,8 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     swcFileReading: false,
-  }
+  },
+  poweredByHeader: false,
 }
 
 module.exports = nextConfig
