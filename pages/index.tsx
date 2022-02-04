@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {} from "mobx";
-import { observer, inject } from "mobx-react";
+import { observer } from "mobx-react";
 
 import { Home } from "../containers";
 

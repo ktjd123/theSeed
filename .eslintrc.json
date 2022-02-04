@@ -12,6 +12,12 @@
         "tsx": "never"
       }
     ],
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": [
+      2,
+      {
+        "exceptions": ["Component"]
+      }
+    ]
   }
 }
