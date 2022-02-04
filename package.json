@@ -4,7 +4,7 @@
   "scripts": {
     "build-server": "yarn lint-server && swc server -d build",
     "run-dev-server": "yarn build-server && node build/index.js",
-    "lint-server": "eslint server",
+    "lint-server": "eslint server --cache",
     "start": "cross-env NODE_ENV=development nodemon --watch server/ --ext ts --exec yarn run-dev-server",
     "build": "yarn pre-build && yarn build-server && next build && yarn post-build",
     "pre-build": "rm -rf build && rm -rf .next",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
     "mobx": "^6.3.13",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@swc/cli": "^0.1.55",
     "@swc/core": "^1.2.133",
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/express-session": "^1.17.4",
     "@types/morgan": "^1.9.3",

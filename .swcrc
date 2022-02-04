@@ -22,5 +22,6 @@
   },
   "module": {
     "type": "commonjs"
-  }
+  },
+  "minify": true
 }
