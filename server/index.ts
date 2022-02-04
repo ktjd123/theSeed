@@ -1,40 +1,40 @@
-import express from "express";
-import morgan from "morgan";
+import express from 'express';
+import morgan from 'morgan';
 // import session from "express-session";
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 // import MongoStore from "connect-mongo";
-import next from "next";
+import next from 'next';
 
-import api from "./routes";
+import api from './routes';
 
 const server = express();
 
-const dev = process.env.NODE_ENV === "development";
+const dev = process.env.NODE_ENV === 'development';
 const app = next({ dev });
 const handler = app.getRequestHandler();
 
-const PORT = process.env.NODE_ENV === "development" ? 80 : 3000;
+const PORT = process.env.NODE_ENV === 'development' ? 80 : 3000;
 
 app.prepare().then(() => {
-  server.use(express.urlencoded({ extended: true, limit: "10mb" }));
-  server.use(express.json({ limit: "10mb" }));
+  server.use(express.urlencoded({ extended: true, limit: '10mb' }));
+  server.use(express.json({ limit: '10mb' }));
 
   if (dev) {
-    server.use(morgan("dev"));
+    server.use(morgan('dev'));
   }
 
   mongoose.Promise = global.Promise;
 
-  server.use("/api", api);
+  server.use('/api', api);
 
-  server.get("*", (req, res) => {
+  server.get('*', (req, res) => {
     handler(req, res);
   });
 
   // eslint-disable-next-line no-unused-vars
   server.use((err: any, req: any, res: any, _: any) => {
     const errMsg = String(err.message);
-    if (errMsg && errMsg.includes("CORS")) {
+    if (errMsg && errMsg.includes('CORS')) {
       // console.error(`CORS ERROR ${req.origin}`);
     } else {
       console.error(err.stack);

@@ -9,7 +9,8 @@
     "build": "yarn pre-build && yarn build-server && next build && yarn post-build",
     "pre-build": "rm -rf build && rm -rf .next",
     "post-build": "cp -r .next build && cp -r public build && cp -r package.json build && cp -r .yarnrc.yml build",
-    "build-start": "NODE_ENV=production node build/index.js"
+    "build-start": "NODE_ENV=production node build/index.js",
+    "lint": "next lint"
   },
   "dependencies": {
     "connect-mongo": "^4.6.0",

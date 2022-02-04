@@ -18,6 +18,7 @@
       {
         "exceptions": ["Component"]
       }
-    ]
+    ],
+    "no-unused-vars": "error"
   }
 }

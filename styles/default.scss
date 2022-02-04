@@ -122,7 +122,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -138,7 +138,7 @@ table {
 
 body {
   background: #fafafa;
-  font-family: "Apple SD Gothic", "Noto Sans KR", "맑은고딕", "Nanum Gothic",
+  font-family: 'Apple SD Gothic', 'Noto Sans KR', '맑은고딕', 'Nanum Gothic',
     sans-serif;
 }
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {} from "mobx";
-import { observer, inject } from "mobx-react";
-import styles from "./index.module.scss";
+import { observer } from "mobx-react";
+// import styles from "./index.module.scss";
 
 interface Props extends React.HtmlHTMLAttributes<HTMLDivElement> {}
 
