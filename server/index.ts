@@ -1,8 +1,8 @@
 import express from "express";
 import morgan from "morgan";
-import session from "express-session";
+// import session from "express-session";
 import mongoose from "mongoose";
-import MongoStore from "connect-mongo";
+// import MongoStore from "connect-mongo";
 import next from "next";
 
 import api from "./routes";
@@ -21,7 +21,6 @@ app.prepare().then(() => {
 
   if (dev) {
     server.use(morgan("dev"));
-  } else {
   }
 
   mongoose.Promise = global.Promise;
@@ -32,10 +31,11 @@ app.prepare().then(() => {
     handler(req, res);
   });
 
-  server.use((err: any, req: any, res: any, next: any) => {
+  // eslint-disable-next-line no-unused-vars
+  server.use((err: any, req: any, res: any, _: any) => {
     const errMsg = String(err.message);
     if (errMsg && errMsg.includes("CORS")) {
-      console.error(`CORS ERROR ${req.origin}`);
+      // console.error(`CORS ERROR ${req.origin}`);
     } else {
       console.error(err.stack);
     }
