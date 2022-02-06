@@ -16,12 +16,11 @@ const app = next({ dev });
 app.prepare().then(async () => {
   server.use(express.urlencoded({ extended: true, limit: "10mb" }));
   server.use(express.json({ limit: "10mb" }));
-
   if (dev) {
     server.use(morgan("dev"));
   } else {
     const whiteList = ["https://dekina.com"];
-    cors({ origin: whiteList });
+    server.use(cors({ origin: whiteList }));
   }
 
   mongoose.Promise = global.Promise;
@@ -48,7 +47,6 @@ app.prepare().then(async () => {
     })
   );
 
-  // TODO CHECK THIS
   // Security headers
   server.use(
     helmet({ contentSecurityPolicy: false, dnsPrefetchControl: false })
