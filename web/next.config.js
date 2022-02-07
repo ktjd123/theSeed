@@ -4,6 +4,7 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     swcFileReading: false,
+    externalDir: true,
   },
   poweredByHeader: false,
 }
