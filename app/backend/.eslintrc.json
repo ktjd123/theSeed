@@ -1,4 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "../.eslintrc.json"],
-  "ignorePatterns": "build/index.js"
+  "extends": ["next/core-web-vitals", "../../.eslintrc.json"],
+  "root": false,
+  "ignorePatterns": "build/**/*"
 }

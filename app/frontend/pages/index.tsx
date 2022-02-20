@@ -8,7 +8,12 @@ interface Props {}
 
 @observer
 export default class Index extends Component<Props> {
+  static async getInitialProps({ query }: { query: any }) {
+    return { ...query, namespacesRequired: ["common"] };
+  }
+
   render() {
+    console.log(this.props);
     return (
       <div>
         <Home />

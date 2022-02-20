@@ -5,7 +5,6 @@ import cors from "cors";
 import session from "express-session";
 import mongoose from "mongoose";
 import MongoStore from "connect-mongo";
-import next from "next";
 import { exampleFunction } from "example-lib";
 
 import api from "./routes";
@@ -15,8 +14,8 @@ exampleFunction();
 const server = express();
 
 const dev = process.env.NODE_ENV === "development";
-const app = next({ dev });
-app.prepare().then(async () => {
+
+const main = async () => {
   server.use(express.urlencoded({ extended: true, limit: "10mb" }));
   server.use(express.json({ limit: "10mb" }));
   if (dev) {
@@ -60,10 +59,10 @@ app.prepare().then(async () => {
 
   server.use("/api", api);
 
-  server.get("*", (req, res) => {
-    const handler = app.getRequestHandler();
-    handler(req, res);
-  });
+  // server.get("*", (req, res) => {
+  //   const handler = app.getRequestHandler();
+  //   handler(req, res);
+  // });
 
   // eslint-disable-next-line no-unused-vars
   server.use((err: any, req: any, res: any, _: any) => {
@@ -80,4 +79,5 @@ app.prepare().then(async () => {
   server.listen(PORT, () => {
     console.log(`App running on http://localhost:${PORT}`);
   });
-});
+};
+main();
