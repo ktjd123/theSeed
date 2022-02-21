@@ -2,17 +2,12 @@
   "name": "backend",
   "private": true,
   "scripts": {
-    "build-server": "yarn lint-server && swc server -d build",
-    "run-dev-server": "yarn build-server && node build/index.js",
-    "lint-server": "eslint server",
-    "start": "cross-env NODE_ENV=development nodemon --watch server/ --ext ts --exec yarn run-dev-server",
-    "build": "yarn pre-build && yarn build-server && next build && yarn post-build",
+    "lint": "eslint server",
     "pre-build": "rm -rf build && rm -rf .next",
-    "post-build": "cp -r .next build && cp -r public build && cp -r package.json build && cp yarn.lock build",
-    "build-start": "NODE_ENV=production node build/index.js",
-    "server-start": "NODE_ENV=production yarn node build/index.js",
-    "lint": "next lint",
-    "exp": "yarn dlx ts-node esbuild.ts"
+    "build": "yarn pre-build && yarn lint && ts-node scripts/esbuild.prod.ts",
+    "run-dev-server": "yarn build && node build/index.js",
+    "start": "cross-env NODE_ENV=development nodemon --watch server/ --ext ts --exec yarn run-dev-server",
+    "build-start": "node build/index.js"
   },
   "dependencies": {
     "@yarnpkg/esbuild-plugin-pnp": "^2.0.1-rc.5",
@@ -39,6 +34,7 @@
     "eslint": "^8.9.0",
     "eslint-config-next": "^12.1.0",
     "nodemon": "^2.0.15",
+    "ts-node": "^10.5.0",
     "typescript": "^4.5.5"
   }
 }
