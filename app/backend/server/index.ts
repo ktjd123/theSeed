@@ -5,15 +5,17 @@ import cors from "cors";
 import session from "express-session";
 import mongoose from "mongoose";
 import MongoStore from "connect-mongo";
-import next from "next";
+import { exampleFunction } from "example-lib";
 
 import api from "./routes";
+
+exampleFunction();
 
 const server = express();
 
 const dev = process.env.NODE_ENV === "development";
-const app = next({ dev });
-app.prepare().then(async () => {
+
+const main = async () => {
   server.use(express.urlencoded({ extended: true, limit: "10mb" }));
   server.use(express.json({ limit: "10mb" }));
   if (dev) {
@@ -40,9 +42,12 @@ app.prepare().then(async () => {
         maxAge: 365 * (24 * 60 * 60 * 1000),
         sameSite: true,
       },
+      // TODO fix type error later
+      // @ts-ignore
       store: MongoStore.create({
         mongoUrl: MONGODB_URI,
         ttl: 365 * (24 * 60 * 60 * 1000),
+        stringify: false,
       }),
     })
   );
@@ -54,10 +59,10 @@ app.prepare().then(async () => {
 
   server.use("/api", api);
 
-  server.get("*", (req, res) => {
-    const handler = app.getRequestHandler();
-    handler(req, res);
-  });
+  // server.get("*", (req, res) => {
+  //   const handler = app.getRequestHandler();
+  //   handler(req, res);
+  // });
 
   // eslint-disable-next-line no-unused-vars
   server.use((err: any, req: any, res: any, _: any) => {
@@ -69,9 +74,12 @@ app.prepare().then(async () => {
     }
     return res.status(500).json({ code: 0 });
   });
+  server.use(express.static("out", { extensions: ["html"] }));
 
   const PORT = dev ? 80 : 3000;
   server.listen(PORT, () => {
     console.log(`App running on http://localhost:${PORT}`);
   });
-});
+};
+
+main();

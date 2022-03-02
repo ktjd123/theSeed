@@ -1,5 +1,6 @@
 {
-  "extends": ["airbnb", "next/core-web-vitals", "prettier"],
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["react"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
     "import/extensions": [
@@ -19,6 +20,8 @@
         "exceptions": ["Component"]
       }
     ],
-    "no-unused-vars": "error"
-  }
+    "no-unused-vars": "error",
+    "react/react-in-jsx-scope": "off"
+  },
+  "root": true
 }
