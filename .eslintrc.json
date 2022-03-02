@@ -1,0 +1,27 @@
+{
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": [
+      2,
+      {
+        "exceptions": ["Component"]
+      }
+    ],
+    "no-unused-vars": "error",
+    "react/react-in-jsx-scope": "off"
+  },
+  "root": true
+}
