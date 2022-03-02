@@ -1,7 +1,6 @@
 import App from "next/app";
 import {} from "mobx";
 import { observer, Provider } from "mobx-react";
-import Axios from "axios";
 
 import { PageHead } from "../components";
 
