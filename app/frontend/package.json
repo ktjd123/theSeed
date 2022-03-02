@@ -3,8 +3,7 @@
   "private": true,
   "scripts": {
     "start": "next dev",
-    "build": "next build",
-    "export": "next export",
+    "build": "next build && next export && mkdir -p ../../build/web && mv out ../../build/web",
     "build-start": "next start",
     "lint": "next lint"
   },

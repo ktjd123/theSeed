@@ -74,10 +74,12 @@ const main = async () => {
     }
     return res.status(500).json({ code: 0 });
   });
+  server.use(express.static("out", { extensions: ["html"] }));
 
   const PORT = dev ? 80 : 3000;
   server.listen(PORT, () => {
     console.log(`App running on http://localhost:${PORT}`);
   });
 };
+
 main();

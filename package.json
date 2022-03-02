@@ -3,6 +3,9 @@
   "private": true,
   "packageManager": "yarn@3.1.1",
   "version": "1.0.0",
+  "scripts": {
+    "build-web": "yarn workspace backend build && yarn workspace frontend build"
+  },
   "workspaces": [
     "app/*",
     "libs/*"

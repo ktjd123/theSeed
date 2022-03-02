@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint server",
-    "pre-build": "rm -rf build && rm -rf .next",
-    "build": "yarn pre-build && yarn lint && ts-node scripts/esbuild.prod.ts",
+    "pre-build": "rm -rf build",
+    "build": "yarn pre-build && yarn lint && ts-node scripts/esbuild.prod.ts && mkdir -p ../../build/web && cp -r build/ ../../build/web",
     "run-dev-server": "yarn build && node build/index.js",
     "start": "cross-env NODE_ENV=development nodemon --watch server/ --ext ts --exec yarn run-dev-server",
     "build-start": "node build/index.js"
