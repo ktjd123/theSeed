@@ -7,7 +7,9 @@
     "build-start": "next start",
     "lint": "next lint"
   },
+  "proxy": "http://localhost:80",
   "dependencies": {
+    "axios": "^0.26.0",
     "mobx": "^6.4.1",
     "mobx-react": "^7.3.0",
     "next": "canary",
