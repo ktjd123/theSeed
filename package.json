@@ -1,7 +1,7 @@
 {
   "name": "theseed",
   "private": true,
-  "packageManager": "yarn@3.1.1",
+  "packageManager": "yarn@3.2.3",
   "version": "1.0.0",
   "scripts": {
     "build-web": "rm -rf build/web && yarn workspace backend build && yarn workspace frontend build"
